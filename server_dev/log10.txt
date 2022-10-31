@@ -1,0 +1,134 @@
+#1 [docker-server/nginx internal] load .dockerignore
+#1 transferring context:
+#1 transferring context: 2B 0.1s done
+#1 DONE 0.1s
+
+#2 [docker-server/nginx internal] load build definition from Dockerfile
+#2 transferring dockerfile: 32B 0.1s done
+#2 DONE 0.1s
+
+#3 [docker-server/django internal] load .dockerignore
+#3 transferring context: 2B 0.0s done
+#3 DONE 0.1s
+
+#4 [docker-server/django internal] load build definition from Dockerfile
+#4 transferring dockerfile: 476B 0.1s done
+#4 DONE 0.2s
+
+#5 [docker-server/django internal] load metadata for docker.io/library/python:3.6.7
+#5 DONE 1.8s
+
+#6 [docker-server/django  1/10] FROM docker.io/library/python:3.6.7@sha256:4ea1013f8409b41712f7a1c10d7603969068fab4422cef58e6446ae5ee81fe28
+#6 DONE 0.0s
+
+#7 [docker-server/nginx internal] load metadata for docker.io/library/nginx:latest
+#7 DONE 1.9s
+
+#8 [docker-server/nginx 1/4] FROM docker.io/library/nginx:latest@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f
+#8 DONE 0.0s
+
+#9 [docker-server/django internal] load build context
+#9 transferring context: 265.18kB done
+#9 DONE 0.0s
+
+#10 [docker-server/nginx internal] load build context
+#10 transferring context: 66B done
+#10 DONE 0.0s
+
+#11 [docker-server/nginx 2/4] COPY nginx.conf /etc/nginx/nginx.conf
+#11 CACHED
+
+#12 [docker-server/nginx 3/4] COPY nginx-app.conf /etc/nginx/sites-available/
+#12 CACHED
+
+#13 [docker-server/nginx 4/4] RUN mkdir -p /etc/nginx/sites-enabled/    && ln -s /etc/nginx/sites-available/nginx-app.conf /etc/nginx/sites-enabled/
+#13 CACHED
+
+#14 [docker-server/nginx] exporting to image
+#14 exporting layers done
+#14 writing image sha256:c352d7845cfef462c802182605ceee22321caddb2799458a0349fbaf30a098b6 done
+#14 naming to docker.io/docker-server/nginx done
+#14 DONE 0.1s
+
+#15 [docker-server/django  2/10] RUN apt-get -y update
+#15 CACHED
+
+#16 [docker-server/django  3/10] RUN apt-get -y install vim
+#16 CACHED
+
+#17 [docker-server/django  4/10] RUN mkdir /srv/docker-server
+#17 CACHED
+
+#18 [docker-server/django  5/10] ADD . /srv/docker-server
+#18 DONE 0.1s
+
+#19 [docker-server/django  6/10] WORKDIR /srv/docker-server
+#19 DONE 0.1s
+
+#20 [docker-server/django  7/10] RUN pip install --upgrade pip
+#20 2.008 Collecting pip
+#20 2.366   Downloading https://files.pythonhosted.org/packages/a4/6d/6463d49a933f547439d6b5b98b46af8742cc03ae83543e4d7688c2420f8b/pip-21.3.1-py3-none-any.whl (1.7MB)
+#20 2.741 Installing collected packages: pip
+#20 2.742   Found existing installation: pip 18.1
+#20 2.856     Uninstalling pip-18.1:
+#20 4.048       Successfully uninstalled pip-18.1
+#20 5.036 Successfully installed pip-21.3.1
+#20 DONE 5.5s
+
+#21 [docker-server/django  8/10] RUN pip install -r requirements.txt
+#21 1.174 Collecting asgiref==3.2.7
+#21 1.489   Downloading asgiref-3.2.7-py2.py3-none-any.whl (19 kB)
+#21 1.817 Collecting Django==3.0.5
+#21 1.879   Downloading Django-3.0.5-py3-none-any.whl (7.5 MB)
+#21 2.653 Collecting pytz==2019.3
+#21 2.717   Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+#21 2.826 Collecting sqlparse==0.3.1
+#21 2.888   Downloading sqlparse-0.3.1-py2.py3-none-any.whl (40 kB)
+#21 2.975 Collecting uwsgi
+#21 3.039   Downloading uwsgi-2.0.21.tar.gz (808 kB)
+#21 3.250   Preparing metadata (setup.py): started
+#21 3.712   Preparing metadata (setup.py): finished with status 'done'
+#21 3.955 Collecting cx_Oracle==8.3
+#21 4.018   Downloading cx_Oracle-8.3.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (858 kB)
+#21 4.082 Building wheels for collected packages: uwsgi
+#21 4.083   Building wheel for uwsgi (setup.py): started
+#21 36.21   Building wheel for uwsgi (setup.py): finished with status 'done'
+#21 36.21   Created wheel for uwsgi: filename=uWSGI-2.0.21-cp36-cp36m-linux_x86_64.whl size=596422 sha256=03ee8385fab216bf5b10235f239e14a8fc68afe5e32ee603a150aa7d9b6a5508
+#21 36.21   Stored in directory: /root/.cache/pip/wheels/2a/3a/89/aae93fe937e233d8ee0dc3fcf999715393d708a84c05fd1cb5
+#21 36.21 Successfully built uwsgi
+#21 36.27 Installing collected packages: sqlparse, pytz, asgiref, uwsgi, Django, cx-Oracle
+#21 38.49 Successfully installed Django-3.0.5 asgiref-3.2.7 cx-Oracle-8.3.0 pytz-2019.3 sqlparse-0.3.1 uwsgi-2.0.21
+#21 38.49 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#21 DONE 39.1s
+
+#22 [docker-server/django  9/10] RUN apt install libaio1
+#22 0.325 
+#22 0.326 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#22 0.327 
+#22 0.353 Reading package lists...
+#22 0.992 Building dependency tree...
+#22 1.096 Reading state information...
+#22 1.200 The following NEW packages will be installed:
+#22 1.201   libaio1
+#22 1.385 0 upgraded, 1 newly installed, 0 to remove and 176 not upgraded.
+#22 1.385 Need to get 9412 B of archives.
+#22 1.385 After this operation, 30.7 kB of additional disk space will be used.
+#22 1.385 Get:1 http://deb.debian.org/debian stretch/main amd64 libaio1 amd64 0.3.110-3 [9412 B]
+#22 1.565 debconf: delaying package configuration, since apt-utils is not installed
+#22 1.597 Fetched 9412 B in 0s (52.7 kB/s)
+#22 1.635 Selecting previously unselected package libaio1:amd64.
+#22 1.635 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 32033 files and directories currently installed.)
+#22 1.764 Preparing to unpack .../libaio1_0.3.110-3_amd64.deb ...
+#22 1.779 Unpacking libaio1:amd64 (0.3.110-3) ...
+#22 1.851 Processing triggers for libc-bin (2.24-11+deb9u3) ...
+#22 2.000 Setting up libaio1:amd64 (0.3.110-3) ...
+#22 2.028 Processing triggers for libc-bin (2.24-11+deb9u3) ...
+#22 DONE 2.2s
+
+#23 [docker-server/django 10/10] RUN sh -c "echo /srv/docker-server.instantclient_21_8 > /"
+#23 0.288 sh: 1: cannot create /: Is a directory
+#23 ERROR: executor failed running [/bin/sh -c sh -c "echo /srv/docker-server.instantclient_21_8 > /"]: exit code: 2
+------
+ > [docker-server/django 10/10] RUN sh -c "echo /srv/docker-server.instantclient_21_8 > /":
+#23 0.288 sh: 1: cannot create /: Is a directory
+------
